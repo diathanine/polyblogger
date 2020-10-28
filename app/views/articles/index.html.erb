@@ -1,6 +1,7 @@
 
 consider reading some articles!
 <%= link_to 'create a new article', new_article_path%>
+<%=@articles.inspect%>
 <table>
   <%= @articles.each do |article|%>
     <td><%=link_to article.title.to_s, article_path(article)%></td>
