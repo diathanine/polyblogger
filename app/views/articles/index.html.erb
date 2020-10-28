@@ -1,9 +1,12 @@
 
-consider reading some articles!
-<%= link_to 'create a new article', new_article_path%>
-<%=@articles.inspect%>
+consider reading some articles, or
+<%= link_to 'create a new article!', new_article_path%>
+
 <table>
-  <%= @articles.each do |article|%>
-    <td><%=link_to article.title.to_s, article_path(article)%></td>
+  <% @articles.each do |article|%>
+    <tr>
+      <td><%=link_to article.title.to_s, article_path(article)%></td>
+      <td><%= article.created_at%></td>
+    </tr>
   <%end%>
 </table>
