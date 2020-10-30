@@ -1,5 +1,5 @@
 <% if @article.errors.any? %>
-  <div class="error_explanation">
+  <div id="error_explanation">
     <ul>
       <%@article.errors.full_messages.each do |explanation|%>
         <li><%=explanation%></li>
