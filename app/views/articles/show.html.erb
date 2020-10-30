@@ -8,5 +8,5 @@
 <p><%= @article.text %></p>
 
 <h2>Comments</h2>
-<p><%#= render 'comments/form'%></p>
-<p><%=  @article.comments.inspect%></p>
+<p><%= render 'comments/form'%></p>
+<p><%=  render partial:'comments/comment', collection: @comments %></p>
