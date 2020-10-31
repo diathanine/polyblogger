@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_143746) do
+ActiveRecord::Schema.define(version: 2020_10_31_160150) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "profile_id", null: false
+    t.index ["profile_id"], name: "index_articles_on_profile_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_143746) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "profiles"
   add_foreign_key "comments", "articles"
   add_foreign_key "profiles", "articles"
   add_foreign_key "profiles", "users"
