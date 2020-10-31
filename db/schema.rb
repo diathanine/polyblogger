@@ -32,11 +32,9 @@ ActiveRecord::Schema.define(version: 2020_10_31_160150) do
 
   create_table "profiles", force: :cascade do |t|
     t.text "bio"
-    t.integer "article_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_profiles_on_article_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -55,6 +53,5 @@ ActiveRecord::Schema.define(version: 2020_10_31_160150) do
 
   add_foreign_key "articles", "profiles"
   add_foreign_key "comments", "articles"
-  add_foreign_key "profiles", "articles"
   add_foreign_key "profiles", "users"
 end
