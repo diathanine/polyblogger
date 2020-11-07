@@ -1,4 +1,7 @@
 <h2>profile</h2>
+<%if current_user && current_profile==@profile%>
+<p><%=link_to '(edit profile)', edit_profile_path(@profile)%></p>
+<%end%>
 <p>username</p>
 <p>joined <%=@profile.created_at%></p>
 <h3>Bio:</h3>
