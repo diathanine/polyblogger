@@ -1,4 +1,9 @@
 <h2>profile</h2>
 <p>username</p>
 <p>joined <%=@profile.created_at%></p>
+<h3>Bio:</h3>
 <p><%=@profile.bio%></p>
+<h3>Articles:</h3>
+<table>
+    <%=render @articles%>
+</table>
