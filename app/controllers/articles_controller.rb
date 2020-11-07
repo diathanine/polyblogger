@@ -43,6 +43,6 @@ class ArticlesController < ApplicationController
   end
   private
   def article_params
-    params.require(:article).permit(:title, :text) #article is only part of the total param set
+    params.require(:article).permit(:title, :text, :profile_id) #article is only part of the total param set
   end
 end

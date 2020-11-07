@@ -17,6 +17,7 @@
     <%=form.label :text%>
     <%=form.text_area :text%>
   </p>
+  <%= form.hidden_field :profile_id, value: current_profile.id %>
   <p>
     <%=form.submit%>
   </p>
