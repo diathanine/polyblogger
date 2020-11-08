@@ -4,4 +4,7 @@
   <%=comment.text%>
 </p>
 <span><%=comment.created_at%></span>
+<%if current_user and current_profile.id == @article.profile_id%>
+  <%=link_to 'delete', article_comment_path(comment), method: :delete, data: {confirm: 'do you want to delete this comment?'}%>
+<%end%>
 <hr>
