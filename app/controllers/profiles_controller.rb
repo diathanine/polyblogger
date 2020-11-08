@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def show
     logger.info 'tasty'
     @profile = Profile.find(params[:id])
-    @articles = Article.where(profile_id: params[:id])
+    @articles = Article.where(profile_id: params[:id]).order(created_at: :desc)
   end
 
   def new
@@ -31,6 +31,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:bio, :user_id) 
+    params.require(:profile).permit(:bio, :user_id)
   end
 end
