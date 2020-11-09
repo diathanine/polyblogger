@@ -2,7 +2,7 @@
 <%if current_user && current_profile==@profile%>
 <p><%=link_to '(edit profile)', edit_profile_path(@profile)%></p>
 <%end%>
-<p>username</p>
+<h3><%=@profile.pen_name%></h3>
 <p>joined <%=@profile.created_at%></p>
 <h3>Bio:</h3>
 <p><%=@profile.bio%></p>

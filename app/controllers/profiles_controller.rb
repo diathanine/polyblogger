@@ -14,12 +14,18 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @profile = Profile.new profile_params
+    @user.profile=@profile
+    if @profile.save
+      redirect_to @profile
+    else
+      render 'new'
+    end
   end
 
   def update
     @profile = Profile.find(params[:id])
-    logger.info "FUCK"
     if @profile.update (profile_params)
       redirect_to @profile
     else
@@ -31,6 +37,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:bio, :user_id)
+    params.require(:profile).permit(:pen_name, :bio, :user_id)
   end
 end

@@ -1,6 +1,6 @@
 
 <h2><%= @article.title%></h2>
-<p>author: <%=link_to @article.profile_id, profile_path(profile_by_id @article.profile_id)%></p>
+<p>author: <%=link_to profile_by_id(@article.profile_id).pen_name, profile_path(profile_by_id @article.profile_id)%></p>
 <p>
   <%=@article.created_at%>
   <%if current_user && current_profile.id==@article.profile_id%>

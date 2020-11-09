@@ -1,0 +1,25 @@
+<% if @profile.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <%@profile.errors.full_messages.each do |explanation|%>
+        <li><%=explanation%></li>
+      <%end%>
+    </ul>
+  </div>
+<%end%>
+
+<%=form_with model: @profile, local: true do |form|%>
+  <p>
+    <%=form.label :pen_name%>
+    <%=form.text_field :pen_name%>
+  </p>
+
+  <p>
+    <%=form.label :bio%>
+    <%=form.text_area :bio%>
+  </p>
+  <%form.hidden_field :user_id, value: current_user.id%>
+  <p>
+    <%=form.submit%>
+  </p>
+<%end%>

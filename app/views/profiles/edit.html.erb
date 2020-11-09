@@ -2,23 +2,4 @@
 <hr>
 <%=@profile.inspect%>
 <hr>
-<% if @profile.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <%@profile.errors.full_messages.each do |explanation|%>
-        <li><%=explanation%></li>
-      <%end%>
-    </ul>
-  </div>
-<%end%>
-
-<%=form_with model: @profile, local: true do |form|%>
-  <p>
-    <%=form.label :bio%>
-    <%=form.text_area :bio%>
-  </p>
-
-  <p>
-    <%=form.submit%>
-  </p>
-<%end%>
+<%=render 'form'%>

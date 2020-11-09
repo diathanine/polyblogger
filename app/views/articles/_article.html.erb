@@ -1,5 +1,5 @@
 <tr>
   <td><%=link_to article.title.to_s, article_path(article)%></td>
-  <td>user: <%=link_to article.profile_id.to_s, profile_path(profile_by_id article.profile_id)%></td>
+  <td>by: <%=link_to profile_by_id(article.profile_id).pen_name, profile_path(profile_by_id article.profile_id)%></td>
   <td><%= article.created_at%></td>
 </tr>
